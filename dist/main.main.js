@@ -10,8 +10,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-const container = document.querySelector('.container');
+// const container = document.querySelector('.container');
+const container = document.createElement('div');
+container.classList.add('container')
+const body = document.querySelector('body');
+body.append(container);
 
 const header = document.createElement('section');
 const footer = document.createElement('footer');
@@ -40,7 +43,6 @@ tasks.forEach((task) => {
 // footer
 footer.innerHTML = '<p class="footer-text">Clear all completed</p>';
 footer.classList.add('footer');
-
 
 
 /***/ }),
