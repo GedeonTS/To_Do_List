@@ -1,9 +1,9 @@
 import './style.css';
 import Icon1 from './images/dots.png';
 import Icon2 from './images/refresh.png';
-// const container = document.querySelector('.container');
+
 const container = document.createElement('div');
-container.classList.add('container')
+container.classList.add('container');
 const body = document.querySelector('body');
 body.append(container);
 
