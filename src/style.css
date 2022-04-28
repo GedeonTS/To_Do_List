@@ -1,0 +1,89 @@
+body {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.container {
+  width: 30vw;
+  min-width: 220px;
+  margin-top: 10%;
+  border-left: solid 1px rgba(128, 128, 128, 0.226);
+  border-top: solid 1px rgba(128, 128, 128, 0.226);
+  border-right: solid 1px rgba(128, 128, 128, 0.226);
+  box-shadow: 7px 7px 7px rgba(128, 128, 128, 0.397);
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: solid 1px rgba(128, 128, 128, 0.226);
+}
+
+.header-text {
+  margin-left: 4%;
+}
+
+.refresh-icon {
+  width: 20px;
+  height: 20px;
+  margin-top: 4%;
+  margin-right: 9%;
+}
+
+.items {
+  list-style: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.items li {
+  border-bottom: solid 1px rgba(128, 128, 128, 0.226);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: 5vh;
+  padding-top: 5%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.context {
+  min-width: 200px;
+}
+
+.btns {
+  margin-right: 3%;
+}
+
+footer {
+  border: solid 1px rgba(128, 128, 128, 0.226);
+  width: 100%;
+  background-color: rgba(2, 116, 116, 0.068);
+  text-align: center;
+}
+
+footer:hover {
+  background-color: rgba(190, 137, 240, 0.274);
+}
+
+.input-field {
+  width: 99%;
+  border: none;
+  border-bottom: solid 1px rgba(128, 128, 128, 0.226);
+  height: 5vh;
+  font-style: italic;
+}
+
+.input-section {
+  width: 100%;
+}
+
+.kebab {
+  width: 20px;
+  height: 20px;
+}
