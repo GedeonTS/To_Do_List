@@ -1,36 +1,54 @@
+import _ from 'lodash';
 import './style.css';
-import Icon1 from './images/dots.png';
-import Icon2 from './images/refresh.png';
+import imgDots from './images/dots.png';
+import imgTrash from './images/bin.png';
+import showInput from './modules/ShowInput.js';
+import Wrapper from './modules/wrapp.js';
+import UserTask from './modules/addRemove.js';
+import removeChecked from './modules/removeChecked.js';
+import SteerChecked from './modules/control.js';
 
-const container = document.createElement('div');
-container.classList.add('container');
-const body = document.querySelector('body');
-body.append(container);
+Wrapper();
 
-const header = document.createElement('section');
-const footer = document.createElement('footer');
-const inputField = document.createElement('section');
+const input = document.getElementById('inputD');
+const list = document.getElementById('list');
 
-const items = document.createElement('ul');
-container.append(header, inputField, items, footer);
-
-// header
-header.innerHTML = `<p class="header-text">Today's To Do</p><img class="refresh-icon" src=${Icon2}>`;
-header.classList.add('header');
-
-items.classList.add('items');
-// input field
-inputField.innerHTML = '<input class="input-field" type="text" placeholder="Add to your list">';
-inputField.classList.add('input-section');
-
-// list manipulation
-const tasks = [{ description: 'have lunch', bool: true, index: 0 },
-  { description: 'create portfolio website', bool: false, index: 1 },
-  { description: 'solve coding challenges', bool: true, index: 2 }];
-tasks.forEach((task) => {
-  items.innerHTML += `<li><div class="context"><input class="btns" type="checkbox">${task.description}</div><img src=${Icon1} class="kebab"></li>`;
+input.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    const checksItem2 = localStorage.getItem('TaskToday');
+    const desc = input.value;
+    let listsLength;
+    if (!checksItem2) {
+      listsLength = 0;
+    } else {
+      const ArrayStored = localStorage.getItem('TaskToday');
+      const ArrayStoredParse = JSON.parse(ArrayStored);
+      listsLength = ArrayStoredParse.length;
+    }
+    const AllTAsksR = new UserTask(desc, false, listsLength);
+    AllTAsksR.add();
+  }
 });
 
-// footer
-footer.innerHTML = '<p class="footer-text">Clear all completed</p>';
-footer.classList.add('footer');
+const ArrayStored2 = localStorage.getItem('TaskToday');
+const ArrayStoredParse2 = JSON.parse(ArrayStored2);
+
+const listR = ArrayStoredParse2;
+
+listR.forEach((a, i) => {
+  list.innerHTML += `<li class="listTasks" draggable="true">
+  <input type="checkbox" name="" class="check">
+  <p class="pTask" id="ptask${i}">${a.description}<img class="imgTrash" src=${imgDots} id="imdots${i}" alt=""/></p>
+  <input value="${a.description}" type="text" class="inputTask" id=${i} />
+  <img class="imgRemove" id="imtrash${i}" src=${imgTrash} alt=""/>
+  </li>`;
+});
+
+const update = new UserTask();
+update.updateStore();
+update.removeTask();
+showInput();
+SteerChecked();
+removeChecked();
+window.addEventListener('load', update.updateId);
