@@ -1,3 +1,5 @@
+import UserTask from './addRemove.js';
+
 const removeChecked = () => {
   const buttonRemove = document.getElementById('btnRemove');
   const checkBoxs = document.querySelectorAll('.check');
@@ -15,6 +17,12 @@ const removeChecked = () => {
         document.getElementById(`ptask${i}`).style.textDecoration = 'line-through rgb(68, 68, 68)';
         localStorage.setItem('TaskToday', JSON.stringify(TasksR));
       }
+    });
+    buttonRemove.addEventListener('click', () => {
+      const BookFiltered = TasksR.filter((book) => book.completed !== true);
+      localStorage.setItem('TaskToday', JSON.stringify(BookFiltered));
+      location.reload();
+      new UserTask().updateId();
     });
   });
 };

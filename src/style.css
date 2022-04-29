@@ -103,3 +103,7 @@ body {
 .button_clear:hover {
   background-color: rgba(184, 181, 181, 0.397);
 }
+
+.holder-text {
+  font-style: italic;
+}
