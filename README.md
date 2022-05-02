@@ -8,7 +8,9 @@
 
 - Javascript
 - HTML and CSS
-- webpack
+- WEBPACK
+- NPM
+- VS CODE
 
 
 ## Getting Started
@@ -23,10 +25,16 @@ You can have a copy of this repo run on your local machine by just directly clon
 
 To get the output of our project make sure you have google Chrome, Mozila or any other browser installed.
 
+## Install 
 
-### Usage
+> In order to install this project please go through the following steps:
 
-Double click on the file index.html
+1. - [ ] Open the `Terminal`
+2. - [ ] Navigate to the directory where you want to add this repository
+3. - [ ] Run `git clone https://github.com/GedeonTS/To_Do_List.git`
+4. - [ ] Run `npm install` to install the necessary modules
+5. - [ ] Run `npm start`
+
 
 ## Authors
 
