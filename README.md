@@ -4,7 +4,7 @@
 
 > "To-do list" is a tool created to help you orginize your daily activities by keeping them listed that you can consult whenever you want, with a feature of marking them as complete. I'm building this To-do list with Javascript (ES6) and Webpack.
 
-## Built With
+### Built With
 
 - Javascript
 - HTML and CSS
@@ -13,9 +13,13 @@
 - VS CODE
 
 
-## Getting Started
+### Getting Started
 
 You can have a copy of this repo run on your local machine by just directly cloning it.
+
+### Live Demo
+
+Click [here](https://gedeonts.github.io/To_Do_List/)!
 
 ### Prerequisites
 
@@ -46,7 +50,7 @@ To get the output of our project make sure you have google Chrome, Mozila or any
 
 ## 🤝 Contributing
 
-contributions are welcome!
+Contributions are welcome!
 
 Feel free to write an issue or check my [issues page](../../issues/).
 
