@@ -24,7 +24,7 @@ describe('test localStorage remove', () => {
     const addAndRemove = new UserTask();
     expect(addAndRemove.removeTask(1)).toBe(2);
   });
-    test('remove third sample', () => {
+  test('remove third sample', () => {
     const addAndRemove = new UserTask();
     expect(addAndRemove.removeTask(2)).toBe(1);
   });
