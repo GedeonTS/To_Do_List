@@ -42,13 +42,16 @@ To get the output of our project make sure you have google Chrome, Mozila or any
 
 ## Authors
 
-👤 **Author1**
+👤 **GedeonTS**
 
 - GitHub: [@GedeonTS](https://github.com/GedeonTS)
 - Twitter: [@Gedeon191](https://twitter.com/Gedeon191)
 - LinkedIn: [Ushindi Gedeon](https://linkedin.com/in/ushindi-gedeon-73032a228)
 
 ## 🤝 Contributing
+
+👤 **Tugsem**
+- GitHub: [@tugsem](https://github.com/tugsem)
 
 Contributions are welcome!
 
