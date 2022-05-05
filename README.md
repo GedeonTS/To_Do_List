@@ -51,9 +51,9 @@ To get the output of our project make sure you have google Chrome, Mozila or any
 ## 🤝 Contributing
 
 👤 **Tugsem**
+
 - GitHub: [@tugsem](https://github.com/tugsem)
 
-Contributions are welcome!
 
 Feel free to write an issue or check my [issues page](../../issues/).
 
