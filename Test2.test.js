@@ -1,9 +1,8 @@
-import jsdom from 'jsdom';
-import UserTask from './__mocks__/Test2.js';
+/**
+ * @jest-environment jsdom
+ */
 
-const { JSDOM } = jsdom;
-const dom = new JSDOM('<!DOCTYPE html>');
-const { document } = (new JSDOM('...')).window;
+import UserTask from './__mocks__/Test2.js';
 
 const addAndRemove = new UserTask();
 describe('test localStorage add', () => {
