@@ -23,23 +23,11 @@ class UserTask {
     return testing.length;
   }
 
-  updateStore() {
+  updateStore(description, id) {
     const ArrayStoredParse = JSON.parse(localStorage.getItem('TaskToday'));
-    const inputs = document.querySelectorAll('.inputTask');
-    inputs.forEach((element) => {
-      element.addEventListener('keypress', (event) => {
-        if (event.key === 'Enter') {
-          event.preventDefault();
-
-          ArrayStoredParse.forEach((a, i) => {
-            const listUpdate = document.getElementById(i);
-            ArrayStoredParse[i].description = listUpdate.value;
-            localStorage.setItem('TaskToday', JSON.stringify(ArrayStoredParse));
-            location.reload();
-          });
-        }
-      });
-    });
+    ArrayStoredParse[id].description = description;
+    localStorage.setItem('TaskToday', JSON.stringify(ArrayStoredParse));
+    return JSON.parse(localStorage.getItem('TaskToday'))[id].description;
   }
 
   updateId() {
@@ -51,12 +39,32 @@ class UserTask {
   }
 
   removeTask(id) {
-    // this.updateId();
+    this.updateId();
     const BookStored = JSON.parse(localStorage.getItem('TaskToday'));
     const BookFiltered = BookStored.filter((book) => book.index !== id);
     localStorage.setItem('TaskToday', JSON.stringify(BookFiltered));
     const testing = JSON.parse(localStorage.getItem('TaskToday'));
     return testing.length;
+  }
+
+  check(id) {
+    this.updateId();
+    const TasksR = JSON.parse(localStorage.getItem('TaskToday'));
+    if (TasksR[id].completed === true) {
+      TasksR[id].completed = false;
+      localStorage.setItem('TaskToday', JSON.stringify(TasksR));
+    } else {
+      TasksR[id].completed = true;
+      localStorage.setItem('TaskToday', JSON.stringify(TasksR));
+    }
+  }
+
+  btnRemoveChecked() {
+    this.updateId();
+    const TasksR = JSON.parse(localStorage.getItem('TaskToday'));
+    const BookFiltered = TasksR.filter((book) => book.completed !== true);
+    localStorage.setItem('TaskToday', JSON.stringify(BookFiltered));
+    return BookFiltered.length;
   }
 }
 
