@@ -1,5 +1,4 @@
-const checktem = localStorage.getItem('TaskToday');
-let toDoList = [];
+const toDoList = [];
 
 class UserTask {
   constructor(content, bool, id1) {
@@ -9,16 +8,9 @@ class UserTask {
   }
 
   add() {
-    if (!checktem) {
-      toDoList.push(this);
-      localStorage.setItem('TaskToday', JSON.stringify(toDoList));
-      const testing = JSON.parse(localStorage.getItem('TaskToday'));
-      return testing.length;
-    }
-    const ArrayStoredParse = JSON.parse(localStorage.getItem('TaskToday'));
-    ArrayStoredParse.push(this);
-    localStorage.setItem('TaskToday', JSON.stringify(ArrayStoredParse));
-    toDoList = ArrayStoredParse;
+    const checktem = localStorage.getItem('TaskToday');
+    toDoList.push(this);
+    localStorage.setItem('TaskToday', JSON.stringify(toDoList));
     const testing = JSON.parse(localStorage.getItem('TaskToday'));
     return testing.length;
   }
@@ -31,40 +23,40 @@ class UserTask {
   }
 
   updateId() {
-    const TasksR = JSON.parse(localStorage.getItem('TaskToday'));
-    TasksR.forEach((a, i) => {
-      a.index = i;
-      localStorage.setItem('TaskToday', JSON.stringify(TasksR));
+    const tasksR = JSON.parse(localStorage.getItem('TaskToday')) || [];
+    tasksR.forEach((task, i) => {
+      task.index = i;
+      localStorage.setItem('TaskToday', JSON.stringify(tasksR));
     });
   }
 
   removeTask(id) {
     this.updateId();
-    const BookStored = JSON.parse(localStorage.getItem('TaskToday'));
-    const BookFiltered = BookStored.filter((book) => book.index !== id);
-    localStorage.setItem('TaskToday', JSON.stringify(BookFiltered));
+    const bookStored = JSON.parse(localStorage.getItem('TaskToday'));
+    const bookFiltered = bookStored.filter((book) => book.index !== id);
+    localStorage.setItem('TaskToday', JSON.stringify(bookFiltered));
     const testing = JSON.parse(localStorage.getItem('TaskToday'));
     return testing.length;
   }
 
   check(id) {
     this.updateId();
-    const TasksR = JSON.parse(localStorage.getItem('TaskToday'));
-    if (TasksR[id].completed === true) {
-      TasksR[id].completed = false;
-      localStorage.setItem('TaskToday', JSON.stringify(TasksR));
+    const tasksR = JSON.parse(localStorage.getItem('TaskToday'));
+    if (tasksR[id].completed === true) {
+      tasksR[id].completed = false;
+      localStorage.setItem('TaskToday', JSON.stringify(tasksR));
     } else {
-      TasksR[id].completed = true;
-      localStorage.setItem('TaskToday', JSON.stringify(TasksR));
+      tasksR[id].completed = true;
+      localStorage.setItem('TaskToday', JSON.stringify(tasksR));
     }
   }
 
   btnRemoveChecked() {
     this.updateId();
-    const TasksR = JSON.parse(localStorage.getItem('TaskToday'));
-    const BookFiltered = TasksR.filter((book) => book.completed !== true);
-    localStorage.setItem('TaskToday', JSON.stringify(BookFiltered));
-    return BookFiltered.length;
+    const tasksR = JSON.parse(localStorage.getItem('TaskToday'));
+    const bookFiltered = tasksR.filter((book) => book.completed !== true);
+    localStorage.setItem('TaskToday', JSON.stringify(bookFiltered));
+    return bookFiltered.length;
   }
 }
 
