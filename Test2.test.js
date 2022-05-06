@@ -1,8 +1,8 @@
-/**
- * @jest-environment jsdom
- */
-
 import UserTask from './__mocks__/Test2.js';
+
+const jsdom = require('jsdom');
+
+const { JSDOM } = jsdom;
 
 const addAndRemove = new UserTask();
 describe('test localStorage add', () => {
