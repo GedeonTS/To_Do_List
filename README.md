@@ -12,14 +12,13 @@
 - NPM
 - VS CODE
 
-
-### Getting Started
-
-You can have a copy of this repo run on your local machine by just directly cloning it.
-
-### Live Demo
+## Live Demo
 
 Click [here](https://gedeonts.github.io/To_Do_List/)!
+
+## Getting Started
+
+You can have a copy of this repo run on your local machine by just directly cloning it.
 
 ### Prerequisites
 
@@ -29,7 +28,7 @@ Click [here](https://gedeonts.github.io/To_Do_List/)!
 
 To get the output of our project make sure you have google Chrome, Mozila or any other browser installed.
 
-## Install 
+### Install 
 
 > In order to install this project please go through the following steps:
 
@@ -64,8 +63,8 @@ Feel free to write an issue or check my [issues page](../../issues/).
 Give a ⭐️ if you like this project!
 
 ## Acknowledgments
-
-- Hat tip to anyone who helped us.
+- Microverse
+- Hat tip to anyone who helped us
 
 ## 📝 License
 
