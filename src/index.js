@@ -12,10 +12,9 @@ Wrapper();
 
 const input = document.getElementById('inputD');
 const list = document.getElementById('list');
+const btn = document.querySelector('.right-arrow');
 
-input.addEventListener('keypress', (e) => {
-  if (e.key === 'Enter') {
-    e.preventDefault();
+const addTask = () => { 
     const checksItem2 = localStorage.getItem('TaskToday');
     const desc = input.value;
     let listsLength;
@@ -28,6 +27,15 @@ input.addEventListener('keypress', (e) => {
     }
     const AllTAsksR = new UserTask(desc, false, listsLength);
     AllTAsksR.add();
+
+}
+
+btn.addEventListener('click', addTask);
+
+input.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    addTask();
   }
 });
 
