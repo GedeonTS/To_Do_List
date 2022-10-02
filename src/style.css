@@ -100,16 +100,15 @@ body {
 }
 
 .header-container {
-display: flex;
-border-top: 1px solid rgba(139, 137, 137, 0.623);
-align-items: center;
+  display: flex;
+  border-top: 1px solid rgba(139, 137, 137, 0.623);
+  align-items: center;
 }
 
 .right-arrow {
   width: 30px;
   height: 30px;
   margin-right: 10px;
-
 }
 
 .button_clear:hover {
@@ -120,7 +119,7 @@ align-items: center;
   font-style: italic;
 }
 
-@media screen and (max-width:768px){
+@media screen and (max-width: 768px) {
   .container {
     width: 100%;
     max-width: 680px;
@@ -128,5 +127,4 @@ align-items: center;
     box-shadow: 6px 10px 10px rgba(100, 100, 100, 0.733);
     margin-top: 110px;
   }
-
 }
