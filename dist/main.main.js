@@ -14,6 +14,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_addRemove_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(17);
 /* harmony import */ var _modules_removeChecked_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(18);
 /* harmony import */ var _modules_control_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(19);
+/* harmony import */ var _modules_dragDrop_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(20);
+
 
 
 
@@ -26,24 +28,33 @@ __webpack_require__.r(__webpack_exports__);
 
 (0,_modules_wrapp_js__WEBPACK_IMPORTED_MODULE_5__["default"])();
 
+const listItems = [];
+
 const input = document.getElementById('inputD');
 const list = document.getElementById('list');
+const btn = document.querySelector('.right-arrow');
+
+const addTask = () => {
+  const checksItem2 = localStorage.getItem('TaskToday');
+  const desc = input.value;
+  let listsLength;
+  if (!checksItem2) {
+    listsLength = 0;
+  } else {
+    const ArrayStored = localStorage.getItem('TaskToday');
+    const ArrayStoredParse = JSON.parse(ArrayStored);
+    listsLength = ArrayStoredParse.length;
+  }
+  const AllTAsksR = new _modules_addRemove_js__WEBPACK_IMPORTED_MODULE_6__["default"](desc, false, listsLength);
+  AllTAsksR.add();
+};
+
+btn.addEventListener('click', addTask);
 
 input.addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
     e.preventDefault();
-    const checksItem2 = localStorage.getItem('TaskToday');
-    const desc = input.value;
-    let listsLength;
-    if (!checksItem2) {
-      listsLength = 0;
-    } else {
-      const ArrayStored = localStorage.getItem('TaskToday');
-      const ArrayStoredParse = JSON.parse(ArrayStored);
-      listsLength = ArrayStoredParse.length;
-    }
-    const AllTAsksR = new _modules_addRemove_js__WEBPACK_IMPORTED_MODULE_6__["default"](desc, false, listsLength);
-    AllTAsksR.add();
+    addTask();
   }
 });
 
@@ -53,12 +64,19 @@ const ArrayStoredParse2 = JSON.parse(ArrayStored2);
 const listR = ArrayStoredParse2;
 
 listR.forEach((a, i) => {
-  list.innerHTML += `<li class="listTasks" draggable="true">
+  const listItem = document.createElement('li');
+  listItem.setAttribute('data-index', i);
+  listItem.setAttribute('draggable', 'true');
+  listItem.setAttribute('class', 'listTasks draggable');
+
+  listItem.innerHTML = `
   <input type="checkbox" name="" class="check">
   <p class="pTask" id="ptask${i}">${a.description}<img class="imgTrash" src=${_images_dots_png__WEBPACK_IMPORTED_MODULE_2__} id="imdots${i}" alt=""/></p>
   <input value="${a.description}" type="text" class="inputTask" id=${i} />
   <img class="imgRemove" id="imtrash${i}" src=${_images_bin_png__WEBPACK_IMPORTED_MODULE_3__} alt=""/>
-  </li>`;
+  `;
+  listItems.push(listItem);
+  list.appendChild(listItem);
 });
 
 const update = new _modules_addRemove_js__WEBPACK_IMPORTED_MODULE_6__["default"]();
@@ -68,7 +86,7 @@ update.removeTask();
 (0,_modules_control_js__WEBPACK_IMPORTED_MODULE_8__["default"])();
 (0,_modules_removeChecked_js__WEBPACK_IMPORTED_MODULE_7__["default"])();
 window.addEventListener('load', update.updateId);
-
+(0,_modules_dragDrop_js__WEBPACK_IMPORTED_MODULE_9__["default"])(listItems);
 
 /***/ }),
 /* 1 */
@@ -17636,7 +17654,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".imgTrash {\n  width: 15px;\n  height: 15px;\n  position: absolute;\n  right: 20px;\n}\n\n.container {\n  width: 70%;\n  max-width: 680px;\n  border: 1px solid rgba(170, 169, 169, 0.788);\n  box-shadow: 6px 10px 10px rgba(100, 100, 100, 0.733);\n  margin-top: 110px;\n}\n\n.container h3 {\n  padding: 0 8px;\n  height: 51px;\n  display: flex;\n  align-items: center;\n  margin: 0;\n  position: relative;\n  font-family: 'Oxygen', sans-serif;\n}\n\nbody {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\n#inputD {\n  width: calc(100% - 14px);\n  border: none;\n  border-top: 1px solid rgba(139, 137, 137, 0.623);\n  height: 48px;\n  padding-left: 12px;\n  color: rgb(110, 110, 110);\n  font-family: 'Oxygen', sans-serif;\n}\n\n#list {\n  width: 100%;\n  margin: 0;\n  padding: 0;\n}\n\n#list li {\n  height: 51px;\n  border-top: 1px solid rgba(139, 137, 137, 0.623);\n  display: flex;\n  align-items: center;\n  position: relative;\n  padding-left: 12px;\n  color: rgb(87, 85, 85);\n}\n\n.button_clear {\n  width: 100%;\n  border: none;\n  border-top: 1px solid rgba(139, 137, 137, 0.623);\n  border-radius: 0;\n  height: 51px;\n  color: rgb(110, 110, 110);\n  font-family: 'Oxygen', sans-serif;\n  font-size: 14px;\n}\n\n.check {\n  margin-right: 12px;\n}\n\n#imgRecycle {\n  width: 15px;\n  height: 15px;\n  position: absolute;\n  right: 12px;\n}\n\n.inputTask {\n  width: 100%;\n  border: none;\n  border-top: 1px solid rgba(139, 137, 137, 0.623);\n  color: rgb(87, 87, 85);\n  height: 51px;\n  font-family: 'Oxygen', sans-serif;\n  font-size: 14px;\n  display: none;\n  background-color: rgba(201, 201, 201, 0.158);\n}\n\n.imgRemove {\n  width: 15px;\n  height: 15px;\n  position: absolute;\n  right: 20px;\n  display: none;\n  z-index: 10;\n}\n\n.button_clear:hover {\n  background-color: rgba(184, 181, 181, 0.397);\n}\n\n.holder-text {\n  font-style: italic;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".imgTrash {\n  width: 15px;\n  height: 15px;\n  position: absolute;\n  right: 20px;\n}\n\n.container {\n  width: 70%;\n  max-width: 680px;\n  border: 1px solid rgba(170, 169, 169, 0.788);\n  box-shadow: 6px 10px 10px rgba(100, 100, 100, 0.733);\n  margin-top: 110px;\n}\n\n.container h3 {\n  padding: 0 8px;\n  height: 51px;\n  display: flex;\n  align-items: center;\n  margin: 0;\n  position: relative;\n  font-family: 'Oxygen', sans-serif;\n}\n\nbody {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\n#inputD {\n  width: calc(100% - 14px);\n  border: none;\n  height: 48px;\n  padding-left: 12px;\n  color: rgb(110, 110, 110);\n  font-family: 'Oxygen', sans-serif;\n}\n\n#list {\n  width: 100%;\n  margin: 0;\n  padding: 0;\n}\n\n#list li {\n  height: 51px;\n  border-top: 1px solid rgba(139, 137, 137, 0.623);\n  display: flex;\n  align-items: center;\n  position: relative;\n  padding-left: 12px;\n  color: rgb(87, 85, 85);\n}\n\n.button_clear {\n  width: 100%;\n  border: none;\n  border-top: 1px solid rgba(139, 137, 137, 0.623);\n  border-radius: 0;\n  height: 51px;\n  color: rgb(110, 110, 110);\n  font-family: 'Oxygen', sans-serif;\n  font-size: 14px;\n}\n\n.check {\n  margin-right: 12px;\n}\n\n#imgRecycle {\n  width: 15px;\n  height: 15px;\n  position: absolute;\n  right: 12px;\n}\n\n.inputTask {\n  width: 100%;\n  border: none;\n  border-top: 1px solid rgba(139, 137, 137, 0.623);\n  color: rgb(87, 87, 85);\n  height: 51px;\n  font-family: 'Oxygen', sans-serif;\n  font-size: 14px;\n  display: none;\n  background-color: rgba(201, 201, 201, 0.158);\n}\n\n.imgRemove {\n  width: 15px;\n  height: 15px;\n  position: absolute;\n  right: 20px;\n  display: none;\n  z-index: 10;\n}\n\n.header-container {\ndisplay: flex;\nborder-top: 1px solid rgba(139, 137, 137, 0.623);\nalign-items: center;\n}\n\n.right-arrow {\n  width: 30px;\n  height: 30px;\n  margin-right: 10px;\n\n}\n\n.button_clear:hover {\n  background-color: rgba(184, 181, 181, 0.397);\n}\n\n.holder-text {\n  font-style: italic;\n}\n\n@media screen and (max-width:768px){\n  .container {\n    width: 100%;\n    max-width: 680px;\n    border: 1px solid rgba(170, 169, 169, 0.788);\n    box-shadow: 6px 10px 10px rgba(100, 100, 100, 0.733);\n    margin-top: 110px;\n  }\n\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -17819,8 +17837,12 @@ const Wrapper = () => {
   document.body.innerHTML = `<div class="container">
    <h3>Today's To Do
    <img src=${_images_refresh_png__WEBPACK_IMPORTED_MODULE_0__} id="imgRecycle" alt=""/></h3>
+   <div class="header-container">
    <input type="text" class="holder-text" placeholder="Add to your list..." id="inputD" draggable="true"/>
-   <ul id="list"></ul>
+   <img class="right-arrow" src="https://img.icons8.com/ios/50/000000/right-squared--v1.png" alt="right-arrow"/>
+   </div>
+   <ul id="list"
+   ></ul>
    <button class="button_clear" id="btnRemove">Clear all completed</button>
 </div>`;
 };
@@ -17859,18 +17881,16 @@ class UserTask {
       localStorage.setItem('TaskToday', JSON.stringify(toDoList));
       location.reload();
     } else {
-      const ArrayStored = localStorage.getItem('TaskToday');
-      const ArrayStoredParse = JSON.parse(ArrayStored);
+      const ArrayStoredParse = JSON.parse(localStorage.getItem('TaskToday'));
       ArrayStoredParse.push(this);
       localStorage.setItem('TaskToday', JSON.stringify(ArrayStoredParse));
-      toDoList = JSON.parse(ArrayStored);
+      toDoList = ArrayStoredParse;
       location.reload();
     }
   }
 
   updateStore() {
-    const ArrayStored = localStorage.getItem('TaskToday');
-    const ArrayStoredParse = JSON.parse(ArrayStored);
+    const ArrayStoredParse = JSON.parse(localStorage.getItem('TaskToday'));
     const inputs = document.querySelectorAll('.inputTask');
     inputs.forEach((element) => {
       element.addEventListener('keypress', (event) => {
@@ -17975,6 +17995,53 @@ const SteerChecked = () => {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SteerChecked);
+
+
+/***/ }),
+/* 20 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ dragDrop)
+/* harmony export */ });
+function dragDrop(listItems) {
+  let dragStartIndex;
+
+  function dragStart() {
+    dragStartIndex = +this.closest('li').getAttribute('data-index');
+  }
+
+  function dragOver(e) {
+    e.preventDefault();
+  }
+
+  function swapItems(fromIndex, toIndex) {
+    const itemOne = listItems[fromIndex].querySelector('.pTask');
+    const itemTwo = listItems[toIndex].querySelector('.pTask');
+
+    listItems[fromIndex].appendChild(itemTwo);
+    listItems[toIndex].appendChild(itemOne);
+  }
+
+  function dragDrop() {
+    const dragEndIndex = +this.getAttribute('data-index');
+    swapItems(dragStartIndex, dragEndIndex);
+  }
+
+  function addEventListener() {
+    const draggables = document.querySelectorAll('.draggable');
+
+    draggables.forEach((draggable) => {
+      draggable.addEventListener('dragstart', dragStart);
+      draggable.addEventListener('dragover', dragOver);
+      draggable.addEventListener('drop', dragDrop);
+    });
+  }
+
+  addEventListener();
+}
 
 
 /***/ })

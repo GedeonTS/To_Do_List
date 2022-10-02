@@ -34,7 +34,6 @@ body {
 #inputD {
   width: calc(100% - 14px);
   border: none;
-  border-top: 1px solid rgba(139, 137, 137, 0.623);
   height: 48px;
   padding-left: 12px;
   color: rgb(110, 110, 110);
@@ -100,10 +99,34 @@ body {
   z-index: 10;
 }
 
+.header-container {
+display: flex;
+border-top: 1px solid rgba(139, 137, 137, 0.623);
+align-items: center;
+}
+
+.right-arrow {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+
+}
+
 .button_clear:hover {
   background-color: rgba(184, 181, 181, 0.397);
 }
 
 .holder-text {
   font-style: italic;
+}
+
+@media screen and (max-width:768px){
+  .container {
+    width: 100%;
+    max-width: 680px;
+    border: 1px solid rgba(170, 169, 169, 0.788);
+    box-shadow: 6px 10px 10px rgba(100, 100, 100, 0.733);
+    margin-top: 110px;
+  }
+
 }
