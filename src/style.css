@@ -34,7 +34,6 @@ body {
 #inputD {
   width: calc(100% - 14px);
   border: none;
-  border-top: 1px solid rgba(139, 137, 137, 0.623);
   height: 48px;
   padding-left: 12px;
   color: rgb(110, 110, 110);
@@ -98,6 +97,19 @@ body {
   right: 20px;
   display: none;
   z-index: 10;
+}
+
+.header-container {
+display: flex;
+border-top: 1px solid rgba(139, 137, 137, 0.623);
+align-items: center;
+}
+
+.right-arrow {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+
 }
 
 .button_clear:hover {
