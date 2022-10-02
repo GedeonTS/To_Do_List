@@ -8,7 +8,8 @@ const Wrapper = () => {
    <input type="text" class="holder-text" placeholder="Add to your list..." id="inputD" draggable="true"/>
    <img class="right-arrow" src="https://img.icons8.com/ios/50/000000/right-squared--v1.png" alt="right-arrow"/>
    </div>
-   <ul id="list"></ul>
+   <ul id="list"
+   ></ul>
    <button class="button_clear" id="btnRemove">Clear all completed</button>
 </div>`;
 };
