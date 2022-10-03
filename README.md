@@ -4,6 +4,12 @@
 
 > "To-do list" is a tool created to help you orginize your daily activities by keeping them listed that you can consult whenever you want, with a feature of marking them as complete. I'm building this To-do list with Javascript (ES6) and Webpack.
 
+| Mobile Version                                                                  | Desktop Version                                           |
+| --------------------------------------------------------------------------------| --------------------------------------------------------- |
+|<img src="https://user-images.githubusercontent.com/97834160/193542346-83b6811b-d2a5-4327-b7dd-3990cef7562e.png" width="500">|![gedeonts github io_To_Do_List_ (2)](https://user-images.githubusercontent.com/97834160/193542153-bf95b2c8-19ce-4e42-902e-0e4a65fa1cfd.png)|
+
+
+
 ### Built With
 
 - Javascript
@@ -19,6 +25,28 @@ Click [here](https://gedeonts.github.io/To_Do_List/)!
 ## Getting Started
 
 You can have a copy of this repo run on your local machine by just directly cloning it.
+
+To get a local copy up and running follow these simple example steps.
+1. Download the `Zip` or `(git clone)[https://github.com/GedeonTS/To_Do_List]`
+2. `cd To_Do_List`
+3. Then open in your browser by using `live server`
+
+## Test
+
+For tracking linter errors locally you need to follow these steps:
+
+- After cloning the project you need to run this command
+  > npm install
+   `This command will download all the dependencies of the project`
+
+- For tracking the linter errors in HTML file run:
+  > npx hint .
+
+- For tracking the linter errors in CSS file run:
+  > npx stylelint "**/*.{css,scss}"
+
+  - And For tracking the linter errors in JavaScript file run:
+  > npx eslint .
 
 ### Prerequisites
 
