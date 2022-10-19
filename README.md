@@ -2,12 +2,11 @@
 # To_Do_List
 
 
-> "To-do list" is a tool created to help you orginize your daily activities by keeping them listed that you can consult whenever you want, with a feature of marking them as complete. I'm building this To-do list with Javascript (ES6) and Webpack.
+> "To-do list" is a tool created to help you orginize your daily activities by keeping them listed that you can consult whenever you want, with a feature of marking them as complete and drag & drop. I'm building this To-do list with Javascript (ES6) and Webpack.
 
 | Mobile Version                                                                  | Desktop Version                                           |
 | --------------------------------------------------------------------------------| --------------------------------------------------------- |
-|<img src="https://user-images.githubusercontent.com/97834160/193542346-83b6811b-d2a5-4327-b7dd-3990cef7562e.png" width="500">|![gedeonts github io_To_Do_List_ (2)](https://user-images.githubusercontent.com/97834160/193542153-bf95b2c8-19ce-4e42-902e-0e4a65fa1cfd.png)|
-
+|<img src="https://user-images.githubusercontent.com/97834160/196655800-881302f2-61bc-4a8f-b6bf-617d8b68b9f1.png" width="300" height="500">|<img src="https://user-images.githubusercontent.com/97834160/196656655-95599e68-b10c-4605-9377-561aa2459e83.png"  width="700" height="500">|
 
 
 ### Built With
