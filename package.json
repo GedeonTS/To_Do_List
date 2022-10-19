@@ -6,19 +6,20 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --open",
-    "build": "webpack"
+    "build": "webpack",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ha-manel/Webpack-Setup.git"
+    "url": "git+https://github.com/GedeonTS/To_Do_List.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ha-manel/Webpack-Setup/issues"
+    "url": "https://github.com/GedeonTS/To_Do_List/issues"
   },
-  "homepage": "https://github.com/ha-manel/Webpack-Setup#readme",
+  "homepage": "https://github.com/GedeonTS/To_Do_List#readme",
   "devDependencies": {
     "@babel/core": "^7.17.9",
     "@babel/eslint-parser": "^7.17.0",
@@ -41,7 +42,7 @@
   },
   "dependencies": {
     "eslint-config-airbnb": "^19.0.4",
-    "jest": "^29.2.1"
+    "gh-pages": "^4.0.0"
   },
   "main": "webpack.config.js"
 }
