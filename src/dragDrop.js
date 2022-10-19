@@ -1,4 +1,4 @@
-export default function dragDrop(listItems) {
+const dragDrop = (listItems) => {
   let dragStartIndex;
 
   function dragStart() {
@@ -45,3 +45,5 @@ export default function dragDrop(listItems) {
 
   addEventListener();
 }
+
+export default dragDrop;
