@@ -2,26 +2,26 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+  mode: 'development',
+
   entry: './src/index.js',
-  mode: 'none',
+
   devServer: {
     static: './dist',
   },
+
   plugins: [
     new HtmlWebpackPlugin({
-      // template: './src/index.html',
-      title: 'todo list',
+      template: './src/index.html',
     }),
   ],
+
   output: {
-    filename: '[name].main.js',
+    filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
-    publicPath: '/To_Do_List/',
   },
-  optimization: {
-    runtimeChunk: 'single',
-  },
+
   module: {
     rules: [
       {
@@ -29,8 +29,9 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: 'asset/resource',
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: ['babel-loader'],
       },
     ],
   },
